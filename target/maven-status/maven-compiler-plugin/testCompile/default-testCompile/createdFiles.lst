@@ -1,0 +1,17 @@
+com\skillovilla\readingmaterial\ConcurrentPublishingIT.class
+com\skillovilla\readingmaterial\MaterialTypeValidationIT.class
+com\skillovilla\readingmaterial\RollbackIT.class
+com\skillovilla\readingmaterial\unit\ArticleDetailServiceTest.class
+com\skillovilla\readingmaterial\TypeSpecificSearchIT.class
+com\skillovilla\readingmaterial\unit\PdfDetailServiceTest.class
+com\skillovilla\readingmaterial\BaseIntegrationTest.class
+com\skillovilla\readingmaterial\ExpiredAccessIT.class
+com\skillovilla\readingmaterial\unit\BookDetailServiceTest.class
+com\skillovilla\readingmaterial\DirectMaterialAccessIT.class
+com\skillovilla\readingmaterial\DraftInvisibilityIT.class
+com\skillovilla\readingmaterial\unit\SlideDeckDetailServiceTest.class
+com\skillovilla\readingmaterial\AccessFilteringIT.class
+com\skillovilla\readingmaterial\SeriesProgressIT.class
+com\skillovilla\readingmaterial\ProgressSurvivesVersionChangeIT.class
+com\skillovilla\readingmaterial\OutOfOrderProgressIT.class
+com\skillovilla\readingmaterial\CollectionAccessIT.class
