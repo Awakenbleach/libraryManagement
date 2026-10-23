@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -18,6 +23,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "series")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Series {
 
     @Id
@@ -34,44 +43,6 @@ public class Series {
     @OneToMany(mappedBy = "series", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SeriesPart> parts = new ArrayList<>();
 
-    public Series() {
-    }
-
-    public Series(String title) {
-        this.title = title;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public List<SeriesPart> getParts() {
-        return parts;
-    }
-
-    public void setParts(List<SeriesPart> parts) {
-        this.parts = parts;
-    }
 
     public void addPart(SeriesPart part) {
         parts.add(part);

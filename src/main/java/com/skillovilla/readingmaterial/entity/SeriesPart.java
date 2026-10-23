@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,6 +27,10 @@ import java.util.UUID;
         @UniqueConstraint(columnNames = {"series_id", "material_id"})
     }
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class SeriesPart {
 
     @Id
@@ -39,46 +48,6 @@ public class SeriesPart {
     @Column(name = "part_order", nullable = false)
     private int partOrder;
 
-    public SeriesPart() {
-    }
-
-    public SeriesPart(Series series, Material material, int partOrder) {
-        this.series = series;
-        this.material = material;
-        this.partOrder = partOrder;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Series getSeries() {
-        return series;
-    }
-
-    public void setSeries(Series series) {
-        this.series = series;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
-    }
-
-    public int getPartOrder() {
-        return partOrder;
-    }
-
-    public void setPartOrder(int partOrder) {
-        this.partOrder = partOrder;
-    }
 
     @Override
     public boolean equals(Object o) {

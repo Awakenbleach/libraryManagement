@@ -63,4 +63,5 @@ public class AdminAccessController {
         accessService.revokeCollectionAccess(readerId, collectionId);
         return ResponseEntity.noContent().build();
     }
+    /* TODO create api for getting readers by their id */
 }

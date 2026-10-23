@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +20,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "article_version_details")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ArticleVersionDetails {
 
     @Id
@@ -29,37 +38,6 @@ public class ArticleVersionDetails {
     @Positive
     private int wordCount;
 
-    public ArticleVersionDetails() {
-    }
-
-    public ArticleVersionDetails(MaterialVersion materialVersion, int wordCount) {
-        this.materialVersion = materialVersion;
-        this.wordCount = wordCount;
-    }
-
-    public UUID getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(UUID versionId) {
-        this.versionId = versionId;
-    }
-
-    public MaterialVersion getMaterialVersion() {
-        return materialVersion;
-    }
-
-    public void setMaterialVersion(MaterialVersion materialVersion) {
-        this.materialVersion = materialVersion;
-    }
-
-    public int getWordCount() {
-        return wordCount;
-    }
-
-    public void setWordCount(int wordCount) {
-        this.wordCount = wordCount;
-    }
 
     @Override
     public boolean equals(Object o) {

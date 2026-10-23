@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,6 +24,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "material_version")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class MaterialVersion {
 
     @Id
@@ -46,71 +55,6 @@ public class MaterialVersion {
     @Column(name = "published_at")
     private Instant publishedAt;
 
-    public MaterialVersion() {
-    }
-
-    public MaterialVersion(Material material, int versionNumber, VersionStatus status, UUID createdBy) {
-        this.material = material;
-        this.versionNumber = versionNumber;
-        this.status = status != null ? status : VersionStatus.DRAFT;
-        this.createdBy = createdBy;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
-    }
-
-    public int getVersionNumber() {
-        return versionNumber;
-    }
-
-    public void setVersionNumber(int versionNumber) {
-        this.versionNumber = versionNumber;
-    }
-
-    public VersionStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(VersionStatus status) {
-        this.status = status;
-    }
-
-    public UUID getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(UUID createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Instant getPublishedAt() {
-        return publishedAt;
-    }
-
-    public void setPublishedAt(Instant publishedAt) {
-        this.publishedAt = publishedAt;
-    }
 
     @Override
     public boolean equals(Object o) {

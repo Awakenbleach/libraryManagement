@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,6 +29,10 @@ import java.util.UUID;
         @UniqueConstraint(columnNames = {"reader_id", "material_id"})
     }
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReaderMaterialAccess {
 
     @Id
@@ -45,54 +54,6 @@ public class ReaderMaterialAccess {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    public ReaderMaterialAccess() {
-    }
-
-    public ReaderMaterialAccess(Reader reader, Material material, LocalDate accessEndDate) {
-        this.reader = reader;
-        this.material = material;
-        this.accessEndDate = accessEndDate;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Reader getReader() {
-        return reader;
-    }
-
-    public void setReader(Reader reader) {
-        this.reader = reader;
-    }
-
-    public Material getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(Material material) {
-        this.material = material;
-    }
-
-    public LocalDate getAccessEndDate() {
-        return accessEndDate;
-    }
-
-    public void setAccessEndDate(LocalDate accessEndDate) {
-        this.accessEndDate = accessEndDate;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
 
     @Override
     public boolean equals(Object o) {

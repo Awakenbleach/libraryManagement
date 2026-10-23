@@ -8,8 +8,8 @@ A backend API implementing a reading material management system with material ve
 
 | Component | Technology |
 |-----------|------------|
-| Language | Java 21 |
-| Framework | Spring Boot 3.4.3 |
+| Language | Java 25 (LTS) |
+| Framework | Spring Boot 3.5.16 |
 | Database | PostgreSQL 17 |
 | ORM | Spring Data JPA / Hibernate 6 |
 | Migrations | Flyway 10 |
@@ -19,8 +19,7 @@ A backend API implementing a reading material management system with material ve
 
 ## Prerequisites
 
-- **Java 21 JDK** installed and set as `JAVA_HOME`
-  - IntelliJ IDEA bundled JBR 21 works: `C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\jbr`
+- **Java 25 JDK** installed and set as `JAVA_HOME`
 - **PostgreSQL 17** running locally or via Docker
 - **Docker** installed (required for integration tests via Testcontainers)
 - **Maven 3.9+** (or use IntelliJ bundled Maven at `C:\Users\ASUS\.m2\wrapper\dists\apache-maven-3.9.9-bin\...`)
@@ -61,8 +60,8 @@ spring.flyway.locations=classpath:db/migration
 ## Running the Application
 
 ```bash
-# Windows PowerShell — set JAVA_HOME to Java 21
-$env:JAVA_HOME = "C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\jbr"
+# Windows PowerShell — set JAVA_HOME to a Java 25 JDK installation
+$env:JAVA_HOME = "C:\path\to\jdk-25"
 $env:Path = "$env:JAVA_HOME\bin;" + $env:Path
 
 # Run
@@ -78,7 +77,7 @@ Flyway migrations run automatically on startup and seed initial test data (V6 se
 > **Requires Docker** — Testcontainers will automatically start a PostgreSQL 17 container.
 
 ```bash
-$env:JAVA_HOME = "C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.3.5\jbr"
+$env:JAVA_HOME = "C:\path\to\jdk-25"
 $env:Path = "$env:JAVA_HOME\bin;" + $env:Path
 
 & "C:\Users\ASUS\.m2\wrapper\dists\apache-maven-3.9.9-bin\4nf9hui3q3djbarqar9g711ggc\apache-maven-3.9.9\bin\mvn.cmd" test

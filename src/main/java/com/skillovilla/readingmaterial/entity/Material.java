@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -21,6 +26,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "material")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Material {
 
     @Id
@@ -45,61 +54,6 @@ public class Material {
     @OneToMany(mappedBy = "material", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MaterialVersion> versions = new ArrayList<>();
 
-    public Material() {
-    }
-
-    public Material(String title, MaterialType materialType) {
-        this.title = title;
-        this.materialType = materialType;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public MaterialType getMaterialType() {
-        return materialType;
-    }
-
-    public void setMaterialType(MaterialType materialType) {
-        this.materialType = materialType;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public List<MaterialVersion> getVersions() {
-        return versions;
-    }
-
-    public void setVersions(List<MaterialVersion> versions) {
-        this.versions = versions;
-    }
 
     public void addVersion(MaterialVersion version) {
         versions.add(version);

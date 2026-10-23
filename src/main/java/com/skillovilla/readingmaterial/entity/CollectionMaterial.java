@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -8,6 +13,10 @@ import java.util.UUID;
 @Entity
 @Table(name = "collection_material")
 @IdClass(CollectionMaterial.CollectionMaterialId.class)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CollectionMaterial {
 
     @Id
@@ -20,17 +29,6 @@ public class CollectionMaterial {
     @JoinColumn(name = "material_id", nullable = false)
     private Material material;
 
-    public CollectionMaterial() {}
-
-    public CollectionMaterial(Collection collection, Material material) {
-        this.collection = collection;
-        this.material = material;
-    }
-
-    public Collection getCollection() { return collection; }
-    public void setCollection(Collection collection) { this.collection = collection; }
-    public Material getMaterial() { return material; }
-    public void setMaterial(Material material) { this.material = material; }
 
     @Override
     public boolean equals(Object o) {

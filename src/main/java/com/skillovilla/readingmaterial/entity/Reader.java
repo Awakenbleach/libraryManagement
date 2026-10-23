@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,6 +19,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "reader")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reader {
 
     @Id
@@ -27,36 +36,6 @@ public class Reader {
     @Column(name = "created_at")
     private Instant createdAt;
 
-    public Reader() {
-    }
-
-    public Reader(String name) {
-        this.name = name;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
 
     @Override
     public boolean equals(Object o) {

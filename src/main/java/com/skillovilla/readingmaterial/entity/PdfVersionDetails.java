@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,6 +20,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "pdf_version_details")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PdfVersionDetails {
 
     @Id
@@ -32,46 +41,6 @@ public class PdfVersionDetails {
     @Column(name = "file_url", nullable = false)
     private String fileUrl;
 
-    public PdfVersionDetails() {
-    }
-
-    public PdfVersionDetails(MaterialVersion materialVersion, int pageCount, String fileUrl) {
-        this.materialVersion = materialVersion;
-        this.pageCount = pageCount;
-        this.fileUrl = fileUrl;
-    }
-
-    public UUID getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(UUID versionId) {
-        this.versionId = versionId;
-    }
-
-    public MaterialVersion getMaterialVersion() {
-        return materialVersion;
-    }
-
-    public void setMaterialVersion(MaterialVersion materialVersion) {
-        this.materialVersion = materialVersion;
-    }
-
-    public int getPageCount() {
-        return pageCount;
-    }
-
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
-    }
-
-    public String getFileUrl() {
-        return fileUrl;
-    }
-
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
 
     @Override
     public boolean equals(Object o) {

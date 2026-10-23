@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,6 +26,10 @@ import java.util.UUID;
         @UniqueConstraint(columnNames = {"version_id", "chapter_number"})
     }
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookChapter {
 
     @Id
@@ -37,46 +46,6 @@ public class BookChapter {
     @Column(nullable = false)
     private String title;
 
-    public BookChapter() {
-    }
-
-    public BookChapter(BookVersionDetails bookVersionDetails, int chapterNumber, String title) {
-        this.bookVersionDetails = bookVersionDetails;
-        this.chapterNumber = chapterNumber;
-        this.title = title;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public BookVersionDetails getBookVersionDetails() {
-        return bookVersionDetails;
-    }
-
-    public void setBookVersionDetails(BookVersionDetails bookVersionDetails) {
-        this.bookVersionDetails = bookVersionDetails;
-    }
-
-    public int getChapterNumber() {
-        return chapterNumber;
-    }
-
-    public void setChapterNumber(int chapterNumber) {
-        this.chapterNumber = chapterNumber;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Override
     public boolean equals(Object o) {

@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -18,6 +23,10 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "book_version_details")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookVersionDetails {
 
     @Id
@@ -34,45 +43,6 @@ public class BookVersionDetails {
     @OneToMany(mappedBy = "bookVersionDetails", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BookChapter> chapters = new ArrayList<>();
 
-    public BookVersionDetails() {
-    }
-
-    public BookVersionDetails(MaterialVersion materialVersion, String author) {
-        this.materialVersion = materialVersion;
-        this.author = author;
-    }
-
-    public UUID getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(UUID versionId) {
-        this.versionId = versionId;
-    }
-
-    public MaterialVersion getMaterialVersion() {
-        return materialVersion;
-    }
-
-    public void setMaterialVersion(MaterialVersion materialVersion) {
-        this.materialVersion = materialVersion;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public List<BookChapter> getChapters() {
-        return chapters;
-    }
-
-    public void setChapters(List<BookChapter> chapters) {
-        this.chapters = chapters;
-    }
 
     public void addChapter(BookChapter chapter) {
         chapters.add(chapter);

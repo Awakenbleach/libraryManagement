@@ -1,4 +1,9 @@
 package com.skillovilla.readingmaterial.entity;
+import lombok.AllArgsConstructor;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,6 +30,10 @@ import java.util.UUID;
         @UniqueConstraint(columnNames = {"reader_id", "material_version_id"})
     }
 )
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReadingProgress {
 
     @Id
@@ -56,78 +65,6 @@ public class ReadingProgress {
     @Column(name = "updated_at")
     private Instant updatedAt;
 
-    public ReadingProgress() {
-    }
-
-    public ReadingProgress(Reader reader, MaterialVersion materialVersion, PositionType positionType) {
-        this.reader = reader;
-        this.materialVersion = materialVersion;
-        this.positionType = positionType;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public Reader getReader() {
-        return reader;
-    }
-
-    public void setReader(Reader reader) {
-        this.reader = reader;
-    }
-
-    public MaterialVersion getMaterialVersion() {
-        return materialVersion;
-    }
-
-    public void setMaterialVersion(MaterialVersion materialVersion) {
-        this.materialVersion = materialVersion;
-    }
-
-    public int getPositionValue() {
-        return positionValue;
-    }
-
-    public void setPositionValue(int positionValue) {
-        this.positionValue = positionValue;
-    }
-
-    public PositionType getPositionType() {
-        return positionType;
-    }
-
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
-
-    public long getProgressRevision() {
-        return progressRevision;
-    }
-
-    public void setProgressRevision(long progressRevision) {
-        this.progressRevision = progressRevision;
-    }
-
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     @Override
     public boolean equals(Object o) {
